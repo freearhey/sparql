@@ -13,7 +13,7 @@ if ( !is_readable( __DIR__ . '/../vendor/autoload.php' ) ) {
 
 $autoLoader = require_once __DIR__ . '/../vendor/autoload.php';
 
-$autoLoader->addPsr4( 'Asparagus\\Tests\\', __DIR__ . '/unit/' );
-$autoLoader->addPsr4( 'Asparagus\\Tests\\Integration\\', __DIR__ . '/integration/' );
+$autoLoader->addPsr4( 'Sparql\\Tests\\', __DIR__ . '/unit/' );
+$autoLoader->addPsr4( 'Sparql\\Tests\\Integration\\', __DIR__ . '/integration/' );
 
 unset( $autoLoader );

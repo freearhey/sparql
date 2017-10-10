@@ -1,12 +1,12 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\QueryBuilder;
-use Asparagus\QueryExecuter;
+use Sparql\QueryBuilder;
+use Sparql\QueryExecuter;
 
 /**
- * @covers Asparagus\QueryExecuter
+ * @covers Sparql\QueryExecuter
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
@@ -14,7 +14,7 @@ use Asparagus\QueryExecuter;
 class QueryExecuterTest extends \PHPUnit_Framework_TestCase {
 
 	private function getHttpMock( $params ) {
-		$http = $this->getMockBuilder( 'Asparagus\Http' )
+		$http = $this->getMockBuilder( 'Sparql\Http' )
 			->disableOriginalConstructor()
 			->getMock();
 

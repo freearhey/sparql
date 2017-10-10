@@ -1,11 +1,11 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\UsageValidator;
+use Sparql\UsageValidator;
 
 /**
- * @covers Asparagus\UsageValidator
+ * @covers Sparql\UsageValidator
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
@@ -25,18 +25,6 @@ class UsageValidatorTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @dataProvider provideDataInvalid
-	 */
-	public function testValidate_variablesInvalid( array $defined, array $used ) {
-		$usageValidator = new UsageValidator();
-		$usageValidator->trackDefinedVariables( $defined );
-		$usageValidator->trackUsedVariables( $used );
-		$this->setExpectedException( 'RangeException' );
-
-		$usageValidator->validate();
-	}
-
-	/**
 	 * @dataProvider provideDataOk
 	 */
 	public function testValidate_prefixesOk( array $defined, array $used ) {
@@ -46,18 +34,6 @@ class UsageValidatorTest extends \PHPUnit_Framework_TestCase {
 		$usageValidator->validate();
 
 		$this->assertTrue( true );
-	}
-
-	/**
-	 * @dataProvider provideDataInvalid
-	 */
-	public function testValidate_prefixesInvalid( array $defined, array $used ) {
-		$usageValidator = new UsageValidator();
-		$usageValidator->trackDefinedPrefixes( $defined );
-		$usageValidator->trackUsedPrefixes( $used );
-		$this->setExpectedException( 'RangeException' );
-
-		$usageValidator->validate();
 	}
 
 	public function provideDataOk() {
@@ -77,17 +53,6 @@ class UsageValidatorTest extends \PHPUnit_Framework_TestCase {
 		);
 	}
 
-	/**
-	 * @dataProvider provideTrackVariablesParsing
-	 */
-	public function testTrackVariablesParsing( $input, $expected ) {
-		$usageValidator = new UsageValidator();
-		$usageValidator->trackUsedVariables( $input );
-		$this->setExpectedException( 'RangeException', $expected );
-
-		$usageValidator->validate();
-	}
-
 	public function provideTrackVariablesParsing() {
 		return array(
 			array( 'foo ?abc bar', '?abc' ),
@@ -97,17 +62,6 @@ class UsageValidatorTest extends \PHPUnit_Framework_TestCase {
 			array( '?foo$bar', '?foo' ),
 			array( '?foo AS ?bar', '?foo' )
 		);
-	}
-
-	/**
-	 * @dataProvider provideTrackPrefixesParsing
-	 */
-	public function testTrackPrefixesParsing( $input, $expected ) {
-		$usageValidator = new UsageValidator();
-		$usageValidator->trackUsedPrefixes( $input );
-		$this->setExpectedException( 'RangeException', $expected );
-
-		$usageValidator->validate();
 	}
 
 	public function provideTrackPrefixesParsing() {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Asparagus;
+namespace Sparql;
 
 use InvalidArgumentException;
 

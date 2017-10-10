@@ -1,12 +1,12 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\QueryPrefixBuilder;
-use Asparagus\UsageValidator;
+use Sparql\QueryPrefixBuilder;
+use Sparql\UsageValidator;
 
 /**
- * @covers Asparagus\QueryPrefixBuilder
+ * @covers Sparql\QueryPrefixBuilder
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >

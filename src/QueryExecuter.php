@@ -1,6 +1,6 @@
 <?php
 
-namespace Asparagus;
+namespace Sparql;
 
 use InvalidArgumentException;
 use RangeException;
@@ -41,7 +41,7 @@ class QueryExecuter {
 		$this->options = array_merge( array(
 			'queryParam' => 'query',
 			'formatParam' => 'format',
-			'userAgent' => 'Asparagus/Asparagus 0.1'
+			'userAgent' => 'Sparql/Sparql 0.1'
 		), $options );
 		$this->http = $http ?: new Http( $this->options['userAgent'] );
 	}

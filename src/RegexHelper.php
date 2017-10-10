@@ -1,6 +1,6 @@
 <?php
 
-namespace Asparagus;
+namespace Sparql;
 
 /**
  * Package-private class to help with regexes.

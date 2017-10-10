@@ -1,8 +1,8 @@
 <?php
 
-namespace Asparagus\Tests\Integration;
+namespace Sparql\Tests\Integration;
 
-use Asparagus\QueryBuilder;
+use Sparql\QueryBuilder;
 
 /**
  * @license GNU GPL v2+
@@ -52,28 +52,6 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 			);
 
 		$this->assertIsExpected( 'union', $queryBuilder->format() );
-	}
-
-	public function testUndefinedPrefixDetected() {
-		$queryBuilder = new QueryBuilder( self::$prefixes );
-
-		$queryBuilder->select( '?age' )
-			->where( '?person', 'test:name', '?name' )
-			->also( 'nyan:age', '?age' );
-
-		$this->setExpectedException( 'RangeException', 'nyan' );
-		$queryBuilder->getSPARQL();
-	}
-
-	public function testUndefinedVariableDetected() {
-		$queryBuilder = new QueryBuilder( self::$prefixes );
-
-		$queryBuilder->select( '?email' )
-			->where( '?person', 'test:name', '?name' )
-			->also( 'test:age', '?age' );
-
-		$this->setExpectedException( 'RangeException', '?email' );
-		$queryBuilder->getSPARQL();
 	}
 
 	private function assertIsExpected( $name, $sparql ) {

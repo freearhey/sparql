@@ -1,11 +1,11 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\QueryFormatter;
+use Sparql\QueryFormatter;
 
 /**
- * @covers Asparagus\QueryFormatter
+ * @covers Sparql\QueryFormatter
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >

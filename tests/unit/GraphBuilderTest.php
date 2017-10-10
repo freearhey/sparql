@@ -1,13 +1,13 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\GraphBuilder;
-use Asparagus\QueryBuilder;
-use Asparagus\UsageValidator;
+use Sparql\GraphBuilder;
+use Sparql\QueryBuilder;
+use Sparql\UsageValidator;
 
 /**
- * @covers Asparagus\GraphBuilder
+ * @covers Sparql\GraphBuilder
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >

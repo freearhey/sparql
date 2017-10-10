@@ -1,11 +1,11 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\ExpressionValidator;
+use Sparql\ExpressionValidator;
 
 /**
- * @covers Asparagus\ExpressionValidator
+ * @covers Sparql\ExpressionValidator
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >

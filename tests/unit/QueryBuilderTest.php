@@ -1,11 +1,11 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\QueryBuilder;
+use Sparql\QueryBuilder;
 
 /**
- * @covers Asparagus\QueryBuilder
+ * @covers Sparql\QueryBuilder
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
@@ -200,7 +200,7 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testNewSubgraph() {
 		$queryBuilder = new QueryBuilder();
-		$this->assertInstanceOf( 'Asparagus\GraphBuilder', $queryBuilder->newSubgraph() );
+		$this->assertInstanceOf( 'Sparql\GraphBuilder', $queryBuilder->newSubgraph() );
 		$this->assertNotSame( $queryBuilder->newSubgraph(), $queryBuilder->newSubgraph() );
 	}
 
@@ -260,13 +260,6 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 		$queryBuilder = new QueryBuilder( array( 'foo' => 'bar' ) );
 
 		$this->assertEquals( 'SELECT * WHERE { }', $queryBuilder->getSPARQL( false ) );
-	}
-
-	public function testGetSPARQL_undefinedVariable() {
-		$queryBuilder = new QueryBuilder();
-		$this->setExpectedException( 'RangeException', '?x' );
-
-		$queryBuilder->select( '?x' )->getSPARQL();
 	}
 
 	public function testGetSPARQL_undefinedPrefix() {

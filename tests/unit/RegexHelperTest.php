@@ -1,11 +1,11 @@
 <?php
 
-namespace Asparagus\Tests;
+namespace Sparql\Tests;
 
-use Asparagus\RegexHelper;
+use Sparql\RegexHelper;
 
 /**
- * @covers Asparagus\RegexHelper
+ * @covers Sparql\RegexHelper
  *
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >

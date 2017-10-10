@@ -7,5 +7,5 @@ by the DBAL query builder.
 
 ## License
 
-Asparagus is licensed under the GNU General Public License Version 2. A copy of the license can be
+Sparql is licensed under the GNU General Public License Version 2. A copy of the license can be
 found in the [LICENSE file](LICENSE).

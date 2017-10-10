@@ -1,8 +1,8 @@
 <?php
 
-namespace Asparagus\Tests\Integration;
+namespace Sparql\Tests\Integration;
 
-use Asparagus\QueryFormatter;
+use Sparql\QueryFormatter;
 
 /**
  * @license GNU GPL v2+
