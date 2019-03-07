@@ -188,6 +188,19 @@ class QueryBuilder {
 	}
 
 	/**
+	 * Assigning given value to variable.
+	 *
+	 * @param string $value
+	 * @param string $variable
+	 * @return self
+	 * @throws InvalidArgumentException
+	 */
+	public function bind( $value, $variable ) {
+		$this->graphBuilder->bind( $value, $variable );
+		return $this;
+	}
+
+	/**
 	 * Adds the given triple as a condition.
 	 *
 	 * @param string $subject

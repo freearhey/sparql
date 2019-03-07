@@ -42,6 +42,11 @@ class GraphBuilder {
 	private $unions = array();
 
 	/**
+	 * @var string[] list of bindings
+	 */
+	private $bindings = array();
+
+	/**
 	 * @var string[] list of subqueries
 	 */
 	private $subqueries = array();
@@ -219,6 +224,19 @@ class GraphBuilder {
 	}
 
 	/**
+	 * Assigning given value to variable.
+	 *
+	 * @param string $value
+	 * @param string $variable
+	 * @return self
+	 * @throws InvalidArgumentException
+	 */
+	public function bind( $value, $variable ) {
+		$this->bindings[] = 'BIND(' . $value . ' AS ' . $variable . ')';
+		return $this;
+	}
+
+	/**
 	 * Adds the given graphs as alternative conditions.
 	 *
 	 * @param GraphBuilder|GraphBuilder[] $graphs
@@ -269,6 +287,7 @@ class GraphBuilder {
 			$sparql .= $this->formatPredicates( $predicates ) . ' .';
 		}
 
+		$sparql .= $this->formatBindings();
 		$sparql .= $this->formatOptionals();
 		$sparql .= $this->formatServices();
 		$sparql .= $this->formatFilters();
@@ -303,6 +322,10 @@ class GraphBuilder {
 
 	private function formatUnions() {
 		return implode( $this->unions );
+	}
+
+	private function formatBindings() {
+		return implode( ' ' , $this->bindings );
 	}
 
 	private function formatSubqueries() {
