@@ -3,6 +3,7 @@
 namespace Sparql\Tests;
 
 use Sparql\QueryFormatter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\QueryFormatter
@@ -10,7 +11,7 @@ use Sparql\QueryFormatter;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryFormatterTest extends \PHPUnit_Framework_TestCase {
+class QueryFormatterTest extends TestCase {
 
 	/**
 	 * @dataProvider provideTestFormat

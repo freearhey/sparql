@@ -4,6 +4,7 @@ namespace Sparql\Tests;
 
 use Sparql\QueryPrefixBuilder;
 use Sparql\UsageValidator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\QueryPrefixBuilder
@@ -11,7 +12,7 @@ use Sparql\UsageValidator;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryPrefixBuilderTest extends \PHPUnit_Framework_TestCase {
+class QueryPrefixBuilderTest extends TestCase {
 
 	private static $prefixes = array(
 		'test' => 'http://www.example.com/test#',
@@ -25,13 +26,13 @@ class QueryPrefixBuilderTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testConstructor_invalidIRI() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		new QueryPrefixBuilder( array( 'bar' => null ), new UsageValidator() );
 	}
 
 	public function testConstructor_invalidPrefix() {
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		new QueryPrefixBuilder( array( 4 => 'http://foo.bar.com/nyan#' ), new UsageValidator() );
 	}

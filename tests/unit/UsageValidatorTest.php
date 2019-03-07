@@ -3,6 +3,7 @@
 namespace Sparql\Tests;
 
 use Sparql\UsageValidator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\UsageValidator
@@ -10,7 +11,7 @@ use Sparql\UsageValidator;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class UsageValidatorTest extends \PHPUnit_Framework_TestCase {
+class UsageValidatorTest extends TestCase {
 
 	/**
 	 * @dataProvider provideDataOk

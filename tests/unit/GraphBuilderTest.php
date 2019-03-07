@@ -5,6 +5,7 @@ namespace Sparql\Tests;
 use Sparql\GraphBuilder;
 use Sparql\QueryBuilder;
 use Sparql\UsageValidator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\GraphBuilder
@@ -12,7 +13,7 @@ use Sparql\UsageValidator;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class GraphBuilderTest extends \PHPUnit_Framework_TestCase {
+class GraphBuilderTest extends TestCase {
 
 	public function testWhere() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
@@ -26,21 +27,21 @@ class GraphBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testWhere_invalidSubject() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$graphBuilder->where( null, '?b', '?c' );
 	}
 
 	public function testWhere_invalidPredicate() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$graphBuilder->where( '?a', null, '?c' );
 	}
 
 	public function testWhere_invalidObject() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$graphBuilder->where( '?a', '?b', null );
 	}
@@ -69,16 +70,26 @@ class GraphBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testAlso_unknownSubject() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$graphBuilder->also( '?x', '?y' );
 	}
 
 	public function testAlso_unknownPredicate() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$graphBuilder->also( '?y' );
+	}
+
+	public function testBind() {
+		$graphBuilder = new GraphBuilder( new UsageValidator() );
+		$this->assertSame(
+			$graphBuilder,
+			$graphBuilder->bind( 'Q12345', '?item' )
+		);
+
+		$this->assertEquals( 'BIND(Q12345 AS ?item)', $graphBuilder->getSPARQL() );
 	}
 
 	public function testFilter() {
@@ -93,7 +104,7 @@ class GraphBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testFilter_invalidExpression() {
 		$graphBuilder = new GraphBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$graphBuilder->filter( 'FooBar' );
 	}

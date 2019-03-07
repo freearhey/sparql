@@ -4,6 +4,7 @@ namespace Sparql\Tests;
 
 use Sparql\QueryModifierBuilder;
 use Sparql\UsageValidator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\QueryModifierBuilder
@@ -11,7 +12,7 @@ use Sparql\UsageValidator;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryModifierBuilderTest extends \PHPUnit_Framework_TestCase {
+class QueryModifierBuilderTest extends TestCase {
 
 	public function testGroupByModifier() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
@@ -22,7 +23,7 @@ class QueryModifierBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGroupByModifier_invalidArgument() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->groupBy( array( null ) );
 	}
@@ -36,7 +37,7 @@ class QueryModifierBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testHavingModifier_invalidArgument() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->having( null );
 	}
@@ -57,14 +58,14 @@ class QueryModifierBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testOrderByModifier_invalidArgument() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->orderBy( null );
 	}
 
 	public function testOrderByModifier_invalidDirection() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->orderBy( '?test', 'FOO' );
 	}
@@ -78,7 +79,7 @@ class QueryModifierBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testLimitModifier_invalidArgument() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->limit( null );
 	}
@@ -92,7 +93,7 @@ class QueryModifierBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testOffsetModifier_invalidArgument() {
 		$queryBuilder = new QueryModifierBuilder( new UsageValidator() );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->offset( null );
 	}

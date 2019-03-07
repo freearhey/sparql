@@ -3,12 +3,13 @@
 namespace Sparql\Tests\Integration;
 
 use Sparql\QueryBuilder;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class WDQSQueryExamplesTest extends \PHPUnit_Framework_TestCase {
+class WDQSQueryExamplesTest extends TestCase {
 
 	private static $prefixes = array(
 		'wd' => 'http://www.wikidata.org/entity/',

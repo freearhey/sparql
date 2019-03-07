@@ -3,12 +3,13 @@
 namespace Sparql\Tests\Integration;
 
 use Sparql\QueryBuilder;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
+class QueryBuilderTest extends TestCase {
 
 	private static $prefixes = array(
 		'test' => 'http://www.example.com/test#'

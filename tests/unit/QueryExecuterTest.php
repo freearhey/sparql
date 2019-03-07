@@ -4,6 +4,7 @@ namespace Sparql\Tests;
 
 use Sparql\QueryBuilder;
 use Sparql\QueryExecuter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\QueryExecuter
@@ -11,7 +12,7 @@ use Sparql\QueryExecuter;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryExecuterTest extends \PHPUnit_Framework_TestCase {
+class QueryExecuterTest extends TestCase {
 
 	private function getHttpMock( $params ) {
 		$http = $this->getMockBuilder( 'Sparql\Http' )
@@ -71,7 +72,7 @@ class QueryExecuterTest extends \PHPUnit_Framework_TestCase {
 
 	public function testExecuteInvalidArgument() {
 		$queryExecuter = new QueryExecuter( 'test.example.com' );
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryExecuter->execute( null );
 	}

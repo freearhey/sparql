@@ -3,6 +3,7 @@
 namespace Sparql\Tests;
 
 use Sparql\ExpressionValidator;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\ExpressionValidator
@@ -10,7 +11,7 @@ use Sparql\ExpressionValidator;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class ExpressionValidatorTest extends \PHPUnit_Framework_TestCase {
+class ExpressionValidatorTest extends TestCase {
 
 	/**
 	 * @dataProvider provideValidExpressions
@@ -55,7 +56,7 @@ class ExpressionValidatorTest extends \PHPUnit_Framework_TestCase {
 	 */
 	public function testValidate_invalidExpressions( $expression, $options, $errorMessage ) {
 		$expressionValidator = new ExpressionValidator();
-		$this->setExpectedException( 'InvalidArgumentException', $errorMessage );
+		$this->expectException( 'InvalidArgumentException', $errorMessage );
 
 		$expressionValidator->validate( $expression, $options );
 	}
@@ -90,7 +91,7 @@ class ExpressionValidatorTest extends \PHPUnit_Framework_TestCase {
 
 	public function testValidate_invalidArgument() {
 		$expressionValidator = new ExpressionValidator();
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$expressionValidator->validate( null, ExpressionValidator::VALIDATE_ALL );
 	}

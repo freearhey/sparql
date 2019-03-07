@@ -3,6 +3,7 @@
 namespace Sparql\Tests;
 
 use Sparql\QueryBuilder;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\QueryBuilder
@@ -10,7 +11,7 @@ use Sparql\QueryBuilder;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
+class QueryBuilderTest extends TestCase {
 
 	public function testSelect() {
 		$queryBuilder = new QueryBuilder();
@@ -30,7 +31,7 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testSelect_invalidArgument() {
 		$queryBuilder = new QueryBuilder();
-		$this->setExpectedException( 'InvalidArgumentException' );
+		$this->expectException( 'InvalidArgumentException' );
 
 		$queryBuilder->select( '?a', false );
 	}
@@ -93,7 +94,7 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 		// use variables ?a and ?b
 		$queryBuilder->where( '?a', '?b', '?c' );
 
-		$this->setExpectedException( 'RangeException' );
+		$this->expectException( 'RangeException' );
 		$queryBuilder->getSPARQL();
 	}
 
@@ -104,7 +105,7 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 			$queryBuilder->select( '?a', '?b' )
 		);
 
-		$this->setExpectedException( 'RuntimeException' );
+		$this->expectException( 'RuntimeException' );
 		$queryBuilder->describe( 'foo:bar' );
 	}
 
@@ -264,7 +265,7 @@ class QueryBuilderTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetSPARQL_undefinedPrefix() {
 		$queryBuilder = new QueryBuilder();
-		$this->setExpectedException( 'RangeException', 'foo, nyan' );
+		$this->expectException( 'RangeException', 'foo, nyan' );
 
 		$queryBuilder->where( '?x', 'foo:bar', 'nyan:data' )->getSPARQL();
 	}

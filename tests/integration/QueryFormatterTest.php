@@ -3,12 +3,13 @@
 namespace Sparql\Tests\Integration;
 
 use Sparql\QueryFormatter;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class QueryFormatterTest extends \PHPUnit_Framework_TestCase {
+class QueryFormatterTest extends TestCase {
 
 	/**
 	 * @dataProvider provideTestFormat

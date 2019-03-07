@@ -3,6 +3,7 @@
 namespace Sparql\Tests;
 
 use Sparql\RegexHelper;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Sparql\RegexHelper
@@ -10,7 +11,7 @@ use Sparql\RegexHelper;
  * @license GNU GPL v2+
  * @author Bene* < benestar.wikimedia@gmail.com >
  */
-class RegexHelperTest extends \PHPUnit_Framework_TestCase {
+class RegexHelperTest extends TestCase {
 
 	/**
 	 * @dataProvider provideMatchingExpressions
