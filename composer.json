@@ -9,7 +9,6 @@
 		"SPARQL"
 	],
 	"homepage": "https://github.com/freearhey/sparql",
-	"license": "GNU GPL v2+",
 	"require": {
 		"php": ">=5.3.0"
 	},
