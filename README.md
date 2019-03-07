@@ -1,4 +1,4 @@
-# SPARQL
+# SPARQL [![Build Status](https://travis-ci.org/freearhey/sparql.svg?branch=master)](https://travis-ci.org/freearhey/sparql)
 
 ### This only clone of the repository [Benestar/asparagus](https://github.com/Benestar/asparagus)
 
