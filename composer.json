@@ -1,7 +1,7 @@
 {
 	"name": "freearhey/sparql",
 	"type": "library",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "SPARQL abstraction layer for PHP",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
